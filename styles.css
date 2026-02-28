@@ -1,0 +1,208 @@
+:root{
+  --bg: #0b0d12;
+  --card: #121624;
+  --text: #e9ecf5;
+  --muted: #aab2c5;
+  --line: rgba(255,255,255,.10);
+  --accent: #7aa2ff;
+
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
+  --max: 980px;
+}
+
+*{ box-sizing: border-box; }
+html,body{ height: 100%; }
+
+html{
+  min-height: 100%;
+  background: radial-gradient(1200px 800px at 20% 0%, rgba(122,162,255,.22), transparent 60%),
+              radial-gradient(900px 700px at 90% 20%, rgba(124,255,197,.12), transparent 55%),
+              var(--bg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+body{
+  margin: 0;
+  background: transparent;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+  color: var(--text);
+}
+
+a{ color: inherit; text-decoration: none; }
+a:hover{ text-decoration: underline; text-decoration-color: rgba(122,162,255,.6); }
+
+.page{
+  max-width: var(--max);
+  margin: 40px auto;
+  padding: 0 18px 40px;
+}
+
+.top{
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+  box-shadow: var(--shadow);
+}
+
+.name{
+  margin: 0;
+  font-size: clamp(28px, 3.2vw, 40px);
+  letter-spacing: .2px;
+}
+
+.role{
+  margin: 8px 0 0;
+  color: var(--muted);
+}
+
+.contact{
+  list-style: none;
+  padding: 0;
+  margin: 14px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  color: var(--muted);
+}
+
+.contact li::before{
+  content: "•";
+  margin-right: 8px;
+  color: rgba(122,162,255,.8);
+}
+
+.top__right{ flex: 0 0 auto; }
+.avatar{
+  width: 96px;
+  height: 96px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 1px solid var(--line);
+}
+
+.card{
+  margin-top: 1rem;
+  padding: 18px 18px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: rgba(18,22,36,.75);
+  box-shadow: var(--shadow);
+}
+
+.card h2{
+  font-size: 16px;
+  letter-spacing: .6px;
+  text-transform: uppercase;
+  color: rgba(233,236,245,.95);
+}
+
+.card p{ margin: 0; line-height: 1.55; color: rgba(233,236,245,.92); }
+
+.grid{
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.timeline{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.timeline__item{
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 14px;
+  padding: 12px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.03);
+}
+
+.timeline__meta{
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.timeline__content h3{
+  margin: 0;
+  font-size: 15px;
+}
+
+.muted{ color: var(--muted); }
+.mt, h2{ 
+    margin-top: 1rem; 
+    margin-bottom: 0.5rem;
+}
+
+.chips{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.chip{
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(122,162,255,.28);
+  background: rgba(122,162,255,.10);
+  font-size: 13px;
+  color: rgba(233,236,245,.95);
+}
+
+.bullets{
+  margin: 0;
+  padding-left: 18px;
+  color: rgba(233,236,245,.92);
+}
+.bullets li{ margin: 8px 0; line-height: 1.45; }
+
+.facts{
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.facts__row{
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.03);
+}
+
+dt{ color: var(--muted); }
+dd{ margin: 0; }
+
+.foot{
+  margin-top: 18px;
+  text-align: center;
+  font-size: 12px;
+}
+
+/* Print / PDF */
+@media print{
+  :root{
+    --bg: #fff;
+    --text: #111;
+    --muted: #444;
+  }
+  body{ background: #fff; color: #111; }
+  .page{ margin: 0; max-width: none; padding: 0; }
+  .top, .card{ box-shadow: none; background: #fff; }
+  a{ text-decoration: none; color: #111; }
+  .chip{ border-color: #bbb; background: #f3f3f3; }
+}
