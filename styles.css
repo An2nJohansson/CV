@@ -193,16 +193,142 @@ dd{ margin: 0; }
   font-size: 12px;
 }
 
-/* Print / PDF */
 @media print{
-  :root{
-    --bg: #fff;
-    --text: #111;
-    --muted: #444;
+  @page{
+    size: A4;
+    margin: 14mm;
   }
-  body{ background: #fff; color: #111; }
-  .page{ margin: 0; max-width: none; padding: 0; }
-  .top, .card{ box-shadow: none; background: #fff; }
-  a{ text-decoration: none; color: #111; }
-  .chip{ border-color: #bbb; background: #f3f3f3; }
+
+  html, body{
+    background: #fff !important;
+    color: #111 !important;
+  }
+
+  body::before{
+    content: none !important;
+  }
+
+  .page{
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .top, .card{
+    background: #fff !important;
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+  }
+
+  .top{
+    padding: 14px !important;
+  }
+
+  .card{
+    padding: 12px 14px !important;
+    margin-top: 10px !important;
+  }
+
+  .card p{
+    color: #111 !important;
+  }
+
+  .muted{
+    color: #444 !important;
+  }
+
+  .name{
+    color: #111 !important;
+  }
+
+  .role, .muted{
+    color: #444 !important;
+  }
+
+  .card h2{
+    color: #111 !important;
+    letter-spacing: .4px !important;
+    text-transform: none !important;
+    font-size: 13px !important;
+    margin-bottom: 8px !important;
+    padding-bottom: 6px !important;
+    border-bottom: 1px solid #e6e6e6 !important;
+  }
+
+  .contact{
+    margin-top: 8px !important;
+    gap: 6px 12px !important;
+    color: #333 !important;
+  }
+
+  .contact li::before{
+    color: #666 !important;
+  }
+
+  a{
+    color: #111 !important;
+    text-decoration: none !important;
+  }
+
+  .avatar{
+    border: 1px solid #ddd !important;
+  }
+
+  .timeline{
+    gap: 10px !important;
+  }
+
+  .timeline__item{
+    background: #fff !important;
+    border: 1px solid #eee !important;
+    padding: 10px 10px !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .timeline__meta{
+    color: #333 !important;
+    font-size: 12px !important;
+  }
+
+  .timeline__content h3{
+    font-size: 13px !important;
+    color: #111 !important;
+  }
+
+  .chip{
+    background: #f3f3f3 !important;
+    border: 1px solid #ddd !important;
+    color: #111 !important;
+    padding: 6px 8px !important;
+    font-size: 12px !important;
+  }
+
+  .bullets{
+    color: #111 !important;
+  }
+
+  .bullets li{
+    margin: 6px 0 !important;
+  }
+
+  .facts__row{
+    background: #fff !important;
+    border: 1px solid #eee !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  dt{ color: #333 !important; }
+  dd{ color: #111 !important; }
+
+  .foot{
+    color: #555 !important;
+    margin-top: 10px !important;
+  }
+
+  section, header{
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
 }
